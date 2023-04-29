@@ -1,0 +1,45 @@
+function [fX, fY, slope, intercept, Rsquared] = linearRegression(x,y)
+%linearRegression Computes the linear regression of a data set
+%   Compute the linear regression based on inputs:
+%     1. x: x-values for our data set
+%     2. y: y-values for our data set
+if size(x) ~= size(y)
+        error('x and y have different size')
+end    
+n1 = length(x)
+[sortedY, sortOrder] = sort(y);
+sortedX = x(sortOrder);
+% Calculate Q1, Q2 (median), and Q3
+Q = quantile(sortedY, [0.25, 0.5, 0.75]);
+Q1 = Q(1);
+Q3 = Q(3);
+
+IQR = Q3-Q1;
+lower_bound = Q1 - 1.5 * IQR;
+upper_bound = Q3 + 1.5 * IQR;
+outliers = sortedY < lower_bound | sortedY > upper_bound;
+
+% Remove any data points that fall outside the bounds
+cleaned_Y = sortedY(~outliers)
+cleaned_X = sortedX(~outliers)
+%   Outputs:
+%     1. fX: x-values with outliers removed
+%     2. fY: y-values with outliers removed
+
+fX = cleaned_X;
+fY = cleaned_Y;
+n = length(fX);
+sxy = sum(fX.*fY);
+sx = sum(fX);
+sy = sum(fY);
+sx2 = sum(fX.^2);
+sy2 = sum(fY.^2);
+%     3. slope: slope from the linear regression y=mx+b
+slope = ((n*sxy-sx*sy))/(n*sx2-sx^2);
+%     4. intercept: intercept from the linear regression y=mx+b
+intercept = mean(fY)-slope.*mean(fX)
+%     5. Rsquared: R^2, a.k.a. coefficient of determination
+St = sum((fY-mean(fY)).^2);
+Sr = sum((fY-intercept-slope.*fX).^2);
+Rsquared = 1- (Sr/St);
+end
