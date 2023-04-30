@@ -1,7 +1,7 @@
 This MATLAB Algorithm estimates the root of a given function. The user must choose two initial gusses to use this algorithm.
 
 function [root, fx, ea, iter] = falsePosition(func, xl, xu, es, maxit, varargin)
-%falsePosition finds the root of a function using false position method
+%falsePosition finds the root of a function using false position method.
 
 % varargin is used to allow for any additional inputs that may be passed to func
 
