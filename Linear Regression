@@ -1,3 +1,10 @@
+%This MATLAB program removes anomalies from a data set before doing linear regression on the resulting data. Any anomalous or extreme data points that are
+%distant from the distribution's mean are eliminated in the first step of the code. The linear regression is computed using the remaining data points after 
+%these outliers have been removed. A line of best fit illustrating the relationship between the variables is provided as the output of this regression.
+%The code then uses the filtered data and the linear regression function to compute a value. Based on a specific value of the predictor variable,
+%this value represents the response variable's predicted value. Overall, this MATLAB method is helpful for getting precise and reliable findings from data sets
+%that may contain unwanted outliers.
+
 function [fX, fY, slope, intercept, Rsquared] = linearRegression(x,y)
 %linearRegression Computes the linear regression of a data set
 %   Compute the linear regression based on inputs:
