@@ -1,3 +1,5 @@
+%This MATLAB function determines the LU Factorization of a square matrix and it uses partial pivoting.
+
 function [L, U, P] = luFactor(A)
 
 [m, n] = size(A);
