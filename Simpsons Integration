@@ -1,7 +1,7 @@
-%The Simpson's integration MATLAB code has three steps: defining the function to be integrated, determining the integration boundaries, and choosing the number
-%of intervals. The width of each interval is then determined by the code, and the Simpson's formula is then applied to each interval to approximate the integral. 
-%It is possible to increase the approximation's accuracy by increasing the number of intervals. For the evaluation of definite integrals that cannot be resolved 
-%analytically, the Simpson's integration code in MATLAB provides a practical and effective technique.
+% The Simpson's integration MATLAB code has three steps: defining the function to be integrated, determining the integration boundaries, and choosing the number
+% of intervals. The width of each interval is then determined by the code, and the Simpson's formula is then applied to each interval to approximate the integral. 
+% It is possible to increase the approximation's accuracy by increasing the number of intervals. For the evaluation of definite integrals that cannot be resolved 
+% 155analytically, the Simpson's integration code in MATLAB provides a practical and effective technique.
 
 
 function [I] = Simpson(x, y)
