@@ -27,7 +27,7 @@ if nargin<5||isempty(maxit)
     maxit=200;
 end
 
-% Initialize iteration count, xr (the root estimate), and ea (the approximate error)
+% Initialize iteration count, xr (the root estimate), and ea (the approximate error).
 iter = 0; xr = xl; ea = 100;
 
 % Begin the iterative process to find the root
